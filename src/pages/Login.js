@@ -1,7 +1,11 @@
-import { Form } from "react-router-dom";
+import { useState } from "react";
 
 function Login(){
+const [email, setEmail]= useState();
+    
     return(
+      
+
          <div className="d-flex align-items-center justify-cintent-center"
      style={{height: '100vh'}}>
 
