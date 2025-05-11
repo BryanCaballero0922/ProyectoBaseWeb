@@ -18421,7 +18421,15 @@ var _sideNavbar = require("./components/SideNavbar");
 var _sideNavbarDefault = parcelHelpers.interopDefault(_sideNavbar);
 var _login = require("./pages/Login");
 var _loginDefault = parcelHelpers.interopDefault(_login);
+var _s = $RefreshSig$();
 function App() {
+    _s();
+    const [items, setItems] = (0, _react.useState)([
+        {
+            title: "Progra web",
+            description: "Clase de los sabados"
+        }
+    ]);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.BrowserRouter), {
         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Routes), {
             children: [
@@ -18430,50 +18438,77 @@ function App() {
                     element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _loginDefault.default), {}, void 0, false, {
                         fileName: "src/App.js",
                         lineNumber: 13,
-                        columnNumber: 47
+                        columnNumber: 37
                     }, void 0)
                 }, void 0, false, {
                     fileName: "src/App.js",
                     lineNumber: 13,
-                    columnNumber: 17
+                    columnNumber: 7
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
                     path: "/*",
                     element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                        style: {
+                            marginLeft: '200px',
+                            marginTop: '56px',
+                            padding: '20px',
+                            background: 'red'
+                        },
                         children: [
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _topNavbarDefault.default), {}, void 0, false, {
                                 fileName: "src/App.js",
-                                lineNumber: 16,
-                                columnNumber: 25
+                                lineNumber: 17,
+                                columnNumber: 11
                             }, void 0),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _sideNavbarDefault.default), {}, void 0, false, {
                                 fileName: "src/App.js",
-                                lineNumber: 17,
-                                columnNumber: 25
+                                lineNumber: 18,
+                                columnNumber: 11
+                            }, void 0),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Routes), {
+                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
+                                    path: "/",
+                                    element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(Home, {
+                                        items: items
+                                    }, void 0, false, {
+                                        fileName: "src/App.js",
+                                        lineNumber: 20,
+                                        columnNumber: 38
+                                    }, void 0)
+                                }, void 0, false, {
+                                    fileName: "src/App.js",
+                                    lineNumber: 20,
+                                    columnNumber: 13
+                                }, void 0)
+                            }, void 0, false, {
+                                fileName: "src/App.js",
+                                lineNumber: 19,
+                                columnNumber: 11
                             }, void 0)
                         ]
                     }, void 0, true, {
                         fileName: "src/App.js",
-                        lineNumber: 15,
-                        columnNumber: 21
+                        lineNumber: 16,
+                        columnNumber: 9
                     }, void 0)
                 }, void 0, false, {
                     fileName: "src/App.js",
-                    lineNumber: 14,
-                    columnNumber: 17
+                    lineNumber: 15,
+                    columnNumber: 7
                 }, this)
             ]
         }, void 0, true, {
             fileName: "src/App.js",
             lineNumber: 12,
-            columnNumber: 13
+            columnNumber: 5
         }, this)
     }, void 0, false, {
         fileName: "src/App.js",
         lineNumber: 11,
-        columnNumber: 9
+        columnNumber: 3
     }, this);
 }
+_s(App, "Hkw0XgEmpuBflfSuNs/sTvOn+oo=");
 _c = App;
 exports.default = App;
 var _c;
@@ -55321,10 +55356,26 @@ try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
 var _reactRouterDom = require("react-router-dom");
+var _s = $RefreshSig$();
 function Login() {
+    _s();
+    const [email, setEmail] = (0, _react.useState)('');
+    const [inputError, setInputerror] = (0, _react.useState)('');
+    const navigate = (0, _reactRouterDom.useNavigate)();
+    const handleSubmit = (e)=>{
+        e.preventDefault();
+        navigate('/');
+    };
+    const handleonBlur = ()=>{
+        if (email.includes('@')) {
+            setInputerror('');
+            navigate('/');
+        } else setInputerror("Correo inv\xe1lido");
+    };
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        className: "d-flex align-items-center justify-cintent-center",
+        className: "d-flex align-items-center justify-content-center",
         style: {
             height: '100vh'
         },
@@ -55336,53 +55387,67 @@ function Login() {
             children: [
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
                     className: "text",
-                    children: "Iniciar secion"
+                    children: "Iniciar sesi\xf3n"
                 }, void 0, false, {
                     fileName: "src/pages/Login.js",
-                    lineNumber: 9,
-                    columnNumber: 5
+                    lineNumber: 27,
+                    columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("form", {
-                    onsubmit: ()=>{},
+                    onSubmit: handleSubmit,
                     children: [
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
                             type: "email",
                             className: "form-control mb-3",
-                            planceholder: "Ingrese su correo",
-                            value: "",
-                            oneChange: ()=>{}
+                            placeholder: "Ingrese su correo",
+                            value: email,
+                            onChange: (event)=>setEmail(event.target.value),
+                            onBlur: handleonBlur
                         }, void 0, false, {
                             fileName: "src/pages/Login.js",
-                            lineNumber: 11,
-                            columnNumber: 9
+                            lineNumber: 29,
+                            columnNumber: 11
+                        }, this),
+                        inputError && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            className: "text-danger mb-3",
+                            children: inputError
+                        }, void 0, false, {
+                            fileName: "src/pages/Login.js",
+                            lineNumber: 37,
+                            columnNumber: 26
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
                             className: "btn btn-primary w-100",
-                            type: "subimit",
+                            type: "submit",
                             children: "Ingresar"
                         }, void 0, false, {
                             fileName: "src/pages/Login.js",
-                            lineNumber: 15,
-                            columnNumber: 7
+                            lineNumber: 38,
+                            columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "src/pages/Login.js",
-                    lineNumber: 10,
+                    lineNumber: 28,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "src/pages/Login.js",
-            lineNumber: 8,
-            columnNumber: 1
+            lineNumber: 26,
+            columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "src/pages/Login.js",
-        lineNumber: 5,
-        columnNumber: 10
+        lineNumber: 25,
+        columnNumber: 5
     }, this);
 }
+_s(Login, "NkjDUSV3wwfxabmYY7khKbUyL78=", false, function() {
+    return [
+        (0, _reactRouterDom.useNavigate)
+    ];
+});
 _c = Login;
 exports.default = Login;
 var _c;
@@ -55393,6 +55458,6 @@ $RefreshReg$(_c, "Login");
   globalThis.$RefreshReg$ = prevRefreshReg;
   globalThis.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"dVPUn","react-router-dom":"61z4w","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi"}]},["5j6Kf","a0t4e"], "a0t4e", "parcelRequirefab3", {}, null, null, "http://localhost:1234")
+},{"react/jsx-dev-runtime":"dVPUn","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi","react-router-dom":"61z4w","react":"jMk1U"}]},["5j6Kf","a0t4e"], "a0t4e", "parcelRequirefab3", {}, null, null, "http://localhost:1234")
 
 //# sourceMappingURL=public.31b563d9.js.map
